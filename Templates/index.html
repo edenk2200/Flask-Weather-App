@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="form_input">
+        <h1>Weather Web App</h1>
+        <form method="post" class="form_input">
+            <label for="city">Input City:</label>
+            <input id="city" name="user_input_city" placeholder="Enter a city" required>
+            <button type="submit" id="submit_button">Select City</button>
+        </form>
+    </div>
+    {% if name %}
+    <div class="weather_display">
+        <h2>Country/City: {{  name  }}</h2>
+        <h2>Temperature: {{  temperature  }}°C</h2>
+        <h2>Weather: {{  weather_condition  }}</h2>
+        <h2>Humidity: {{  humidity  }}%</h2>
+        <h2>Wind Speed: {{  wind_speed  }} m/s</h2>
+    </div>
+    {% endif %}
+</body>
+</html>
