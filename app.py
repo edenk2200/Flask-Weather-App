@@ -18,6 +18,8 @@ def submit():
             api_get = requests.get(url)
             data = api_get.json()
 
+            if data["cod"] == "404":
+                return render_template("index.html", error="City name invalid. Please enter a valid city name.")
             return render_template("index.html", 
                 name = data['name'],
                 temperature = data['main']['temp'],

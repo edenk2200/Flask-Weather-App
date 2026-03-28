@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Web App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     <div class="form_input">
         <h1>Weather Web App</h1>
         <form method="post" class="form_input">
             <label for="city">Input City:</label>
-            <input id="city" name="user_input_city" placeholder="Enter a city" required>
+            <input id="city"
+            name="user_input_city" 
+            placeholder="Enter a city" 
+            required
+            autocomplete="address-level2">
             <button type="submit" id="submit_button">Select City</button>
         </form>
     </div>
@@ -23,6 +26,11 @@
         <h2>Weather: {{  weather_condition  }}</h2>
         <h2>Humidity: {{  humidity  }}%</h2>
         <h2>Wind Speed: {{  wind_speed  }} m/s</h2>
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="error_message">
+        <h2>Error found: {{ error }}</h2>
     </div>
     {% endif %}
 </body>
